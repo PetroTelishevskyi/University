@@ -1,0 +1,4 @@
+﻿  Source.cpp
+c:\users\user\desktop\g\g\source.cpp(77): warning C4101: size: неиспользованная локальная переменная
+c:\users\user\desktop\g\g\source.cpp(75): warning C4715: Gaussa: значение возвращается не при всех путях выполнения
+  G.vcxproj -> C:\Users\User\Desktop\G\Debug\G.exe
