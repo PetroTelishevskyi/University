@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int n = 100000;
+int n = 10000;
 
 
 void swap(int *xp, int *yp)
@@ -15,40 +15,13 @@ void swap(int *xp, int *yp)
 	*xp = *yp;
 	*yp = temp;
 }
-/*void merge(int a[1000], int l, int r) {
-	if (r == l)
-		return;
-	if (r - l == 1) {
-		if (a[r] < a[l])
-			swap(a[r], a[l]);
-		return;
-	}
-	int m = (r + l) / 2;
-	merge(a, l, m);
-	merge(a, m + 1, r);
-	int *buf = new int[n];
-	int xl = l;
-	int xr = m + 1;
-	int cur = 0;
-	while (r - l + 1 != cur) {
-		if (xl > m)
-			buf[cur++] = a[xr++];
-		else if (xr > r)
-			buf[cur++] = a[xl++];
-		else if (a[xl] > a[xr])
-			buf[cur++] = a[xr++];
-		else buf[cur++] = a[xl++];
 
-	}
-	for (int i = 0; i < cur; i++)
-		a[i + l] = buf[i];
-}*/
-void bubble(int arr[100000], int l, int r)
+void bubble(int *arr, int l, int r)
 {
 	int i, j;
 	for (i = 0; i < n - 1; i++)
 
-		// Last i elements are already in place    
+	  
 		for (j = 0; j < n - i - 1; j++)
 			if (arr[j] > arr[j + 1])
 				swap(&arr[j], &arr[j + 1]);
@@ -155,8 +128,8 @@ DWORD WINAPI Th14(LPVOID param)
 int main()
 {
 
-	int a[100000];
-	for (int i = 0; i < 100000; i++) {
+	int *a = new int[n];
+	for (int i = 0; i < n; i++) {
 		a[i] = rand();
 	}
 	int b;
@@ -172,12 +145,12 @@ int main()
 			WaitForSingleObject(th2, INFINITE);
 
 		
-			cout << "time:" << clock() - time << "\n";
-			//sort(a, a + n - 1);
-			for (int i = 0; i < 100000; i++) {
+			time = clock() - time;
+			for (int i = 0; i < n; i++) {
 				cout << a[i] << " ";
 			}
 			cout << "\n";
+			cout << "Time:" << time << "\n";
 			CloseHandle(th1);
 			CloseHandle(th2);
 		}
@@ -192,12 +165,13 @@ int main()
 			WaitForSingleObject(th5, INFINITE);
 			WaitForSingleObject(th6, INFINITE);
 			
-			cout << "time:" << clock() - time1 << "\n";
+			time1 = clock() - time1;
 			//sort(a, a + n - 1);
-			for (int i = 0; i < 100000; i++) {
+			for (int i = 0; i < n; i++) {
 				cout << a[i] << " ";
 			}
 			cout << "\n";
+			cout << "Time:" << time1 << "\n";
 			CloseHandle(th3);
 			CloseHandle(th4);
 			CloseHandle(th5);
@@ -222,12 +196,13 @@ int main()
 			WaitForSingleObject(th13, INFINITE);
 			WaitForSingleObject(th14, INFINITE);
 			
-			cout << "time:" << clock() - time2 << "\n";
-			//sort(a, a + n - 1);
-			for (int i = 0; i < 100000; i++) {
+			time2 = clock() - time2;
+	
+			for (int i = 0; i < n; i++) {
 				cout << a[i] << " ";
 			}
 			cout << "\n";
+			cout << "Time:" << time2 << "\n";
 			CloseHandle(th7);
 			CloseHandle(th8);
 			CloseHandle(th9);

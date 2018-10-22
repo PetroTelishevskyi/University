@@ -1,0 +1,4 @@
+﻿  Source.cpp
+c:\users\user\desktop\oc_5\oc_5\source.cpp(47): warning C4101: p: неиспользованная локальная переменная
+c:\users\user\desktop\oc_5\oc_5\source.cpp(48): warning C4101: foo: неиспользованная локальная переменная
+  OC_5.vcxproj -> C:\Users\User\Desktop\OC_5\Debug\OC_5.exe
